@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  with_option presence: true do
+  with_options presence: true do
     validates :name
     validates :color
   end
