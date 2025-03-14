@@ -1,0 +1,15 @@
+カテゴリー編集<br />
+<br />
+<%= form_with model: @category, local: true do |f|%>
+    <%= f.label :name, "カテゴリー名" %>
+    <%= f.text_field :name %>
+<br />
+    <%= f.label :color, "ラベル色" %>
+    <%= f.color_field :color %><br />
+<br />
+  <div class="actions">
+    <%= f.submit "保存"  %>
+  </div>
+<% end %>
+<br />
+<%= link_to "＜ 一覧に戻る", categories_path %>
