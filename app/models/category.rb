@@ -3,4 +3,6 @@ class Category < ApplicationRecord
     validates :name
     validates :color
   end
+
+  has_many :records
 end

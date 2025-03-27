@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_03_102927) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_19_135248) do
   create_table "categories", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.string "color", null: false
@@ -18,4 +18,13 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_03_102927) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "records", charset: "utf8mb3", force: :cascade do |t|
+    t.datetime "recorded_at", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_records_on_category_id"
+  end
+
+  add_foreign_key "records", "categories"
 end

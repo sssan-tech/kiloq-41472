@@ -1,4 +1,15 @@
-<h1>Records#new</h1>
-<p>Find me in app/views/records/new.html.erb</p>
-
-<%= link_to "カテゴリー一覧", categories_path %>
+<h2>新規 KIlOQ</h2>
+<%= form_with model: @record, local: true do |f|%>
+    <%= f.label :recorded_at, "記録時刻" %>
+    <%= f.datetime_select :recorded_at, default: DateTime.now %><br />
+    ※現在時刻が初期値として自動入力されます。<br />
+<br />
+    <%= f.label :category_id, "カテゴリー" %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %> <%= link_to "新規登録・編集", categories_path %><br />
+<br />
+  <div class="actions">
+    <%= f.submit "KIlOQ"  %>
+  </div>
+<% end %>
+<br />
+<%= link_to "＜ カテゴリー一覧", categories_path %> ｜ <%= link_to "KIlOQ一覧 ＞", records_path %>
